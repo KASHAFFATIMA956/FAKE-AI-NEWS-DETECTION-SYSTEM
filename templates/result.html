@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="main-card text-center">
+      <h3>Prediction Result</h3>
+      <div class="mt-4 mb-4 p-3 bg-dark rounded">{{ news }}</div>
+      {% if prediction == "Real News" %}
+          <h2 class="text-success">{{ prediction }}</h2>
+      {% else %}
+          <h2 class="text-danger">{{ prediction }}</h2>
+      {% endif %}
+      <h5 class="mt-3">Confidence: {{ confidence }}%</h5>
+      <a href="/" class="btn btn-info mt-4">Check Another</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

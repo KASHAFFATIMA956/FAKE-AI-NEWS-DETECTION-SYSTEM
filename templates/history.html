@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-11">
+    <div class="main-card">
+      <h2 class="mb-4 text-center">Prediction History</h2>
+      <div class="table-responsive">
+        <table class="table table-dark table-hover">
+          <thead>
+            <tr>
+              <th>News</th>
+              <th>Prediction</th>
+              <th>Confidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in data %}
+            <tr>
+              <td>{{ row[0] }}</td>
+              <td>
+                {% if row[1]=="Real News" %}
+                    <span class="text-success">{{ row[1] }}</span>
+                {% else %}
+                    <span class="text-danger">{{ row[1] }}</span>
+                {% endif %}
+              </td>
+              <td>{{ row[2] }}%</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
